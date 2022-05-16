@@ -22,14 +22,11 @@ public class MainActivity extends AppCompatActivity {
         Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
-        //Intent intent = new Intent(MainActivity.this, SecondActivity.class);
-        //  startActivity(intent);
 
-        prefRef = getPreferences(MODE_PRIVATE);
-        prefRefEditor = prefRef.edit();
+        prefRef = getSharedPreferences("jarjar", MODE_PRIVATE);
 
         showText= findViewById(R.id.mainTextView);
-        showText.setText(prefRef.getString("MyAppPreferenceString", "No preference found."));
+        showText.setText(prefRef.getString("abc", "No preference found."));
 
         openButton=findViewById(R.id.mainButton);
         openButton.setOnClickListener(new View.OnClickListener() {
@@ -39,8 +36,13 @@ public class MainActivity extends AppCompatActivity {
                 startActivity(intent);
             }
         });
-
-
     }
 
+    @Override
+    protected void onResume() {
+        super.onResume();
+
+        showText.setText(prefRef.getString("abc", "No preference found."));
+
+    }
 }
