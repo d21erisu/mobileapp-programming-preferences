@@ -38,8 +38,7 @@ public class SecondActivity extends AppCompatActivity {
                 secondPrefRefEditor.putString("abc", displayInput.getText().toString());
                 secondPrefRefEditor.apply();
 
-              //  String tomte = secondPrefRef.getString("MyAppPreferenceString", "No preference found.");
-              //  displayInput.setText(tomte);
+
 
 
             }
